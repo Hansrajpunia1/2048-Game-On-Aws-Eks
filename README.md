@@ -76,9 +76,7 @@ This command **configures your local `kubectl`** tool to connect to your **EKS (
 ---
 
 
-## Step.3
-
-### Create Fargate Profile 
+## Step.3 Create Fargate Profile 
 
 ```bash
 eksctl create fargateprofile \
@@ -237,8 +235,7 @@ These two commands download and create an IAM policy that is required for the AW
 
 ---
 
-## Step.6
-### Creates an IAM service account in your EKS cluster and attaches the IAM policy you created earlier (for the AWS Load Balancer Controller).
+## Step.6 Creates an IAM service account in your EKS cluster and attaches the IAM policy you created earlier (for the AWS Load Balancer Controller).
 
 ```bash
 eksctl create iamserviceaccount `
@@ -258,9 +255,7 @@ eksctl create iamserviceaccount `
 
 ---
 
-## Step.7
-
-### Deploys the AWS Load Balancer Controller into your Amazon EKS cluster, using Helm, a package manager for Kubernetes.
+## Step.7 Deploys the AWS Load Balancer Controller into your Amazon EKS cluster, using Helm, a package manager for Kubernetes.
 Add the EKS Helm repo:
 ```bash
 helm repo add eks https://aws.github.io/eks-charts
@@ -291,8 +286,7 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n ku
 
 ---
 
-## Step.8
-### Check the deployment and pods status
+## Step.8 Check the deployment and pods status
 ```bash
 kubectl get pods -n game-2048
 ```
@@ -347,5 +341,5 @@ http://k8s-game2048-ingress2-bcacOb5b37-358453007.us-east-1.elb.amazonaws.com
 
 ---
 
-
-<"C:\Users\login\OneDrive\Pictures\Screenshots\Screenshot 2026-03-29 035735.png"" />
+## Final output (2048-Game-live)
+![2048-Game-output](https://github.com/Hansrajpunia1/2048-Game-On-Aws-Eks/blob/666a3e6e772acf113007ee574abc0121d6cbff00/assets/2048-game-live.png)

@@ -272,6 +272,20 @@ helm install aws-load-balancer-controller eks/aws-load-balancer-controller -n ku
   --set region=us-east-1 `
   --set vpcId=<vpc-id>
 ```
+Verify deployment:
+
+```bash
+kubectl get deployment -n kube-system aws-load-balancer-controller
+```
+
+Expected output:
+
+```
+READY   UP-TO-DATE   AVAILABLE
+2/2     2            2
+```
+
+---
 
 ### 🧠 What happens after this:
 1. The AWS Load Balancer Controller is deployed into your EKS cluster.
@@ -332,12 +346,49 @@ You can access the deployed 2048 game using either of the following methods:
    ```
 
 ---
+Example output:
 
-### Example:
+```
+NAME           CLASS   HOSTS   ADDRESS
+ingress-2048   alb     *       k8s-game2048-xxxx.us-east-1.elb.amazonaws.com
+```
+
+Open the **ALB URL in your browser** to play the **2048 game**.
 
 ```
 http://k8s-game2048-ingress2-bcacOb5b37-358453007.us-east-1.elb.amazonaws.com
 ```
+
+## 🧹 Cleanup (Avoid AWS Charges)
+
+Delete the cluster when finished.
+
+```bash
+eksctl delete cluster --name demo-cluster --region us-east-1
+```
+---
+
+## 🧠 Key Learnings
+
+* Creating EKS clusters using `eksctl`
+* Running Kubernetes workloads using **AWS Fargate**
+* Deploying applications on Kubernetes
+* Using **AWS Load Balancer Controller**
+* Exposing applications using **ALB Ingress**
+* Managing **IAM roles for Kubernetes service accounts**
+
+---
+
+## 🛠 Technologies Used
+
+* AWS EKS
+* Kubernetes
+* AWS Fargate
+* Application Load Balancer (ALB)
+* Helm
+* IAM & OIDC
+* kubectl
+* eksctl
 
 ---
 

@@ -178,7 +178,6 @@ The YAML file includes several Kubernetes objects:
 4. `Ingress`: Defines the ALB Ingress rules, so AWS ALB (Application Load Balancer) can route external traffic to your app
 
 ---
----
 
 ## Verify Deployment
 ### Check if your 2048 game pod is running and healthy.
@@ -304,12 +303,8 @@ READY   UP-TO-DATE   AVAILABLE
 ```bash
 kubectl get pods -n game-2048
 ```
-You run this to check which system-level services (like CoreDNS, metrics-server, AWS controllers) are deployed and whether they are running properly.
-
-```bash
-kubectl get pods -n game-2048
-```
-Useful when you want to see the actual pod-level status (Running, CrashLoopBackOff, etc.) of your workloads or controllers deployed in that custom namespace.
+You run this to check which system-level services (like CoreDNS, metrics-server, AWS controllers) are deployed and whether they are running properly. This command shows the status of your application pods in the game-2048 namespace.
+You can check whether pods are Running, Pending, or in an error state like CrashLoopBackOff.
 
 ---
  ## Final Step
